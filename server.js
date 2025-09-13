@@ -11,19 +11,21 @@ const budget = {
     myBudget: [
         {
             title: 'Eat out',
-            budget: 25
+            budget: 30
         },
         {
             title: 'Rent',
-            budget: 275
+            budget: 350
         },
         {
             title: 'Grocery',
-            budget: 110
+            budget: 90
         },
     ]
 };
 
+
+app.get('/', express.static('public'));
 
 app.get('/budget', (req, res) => {
     res.json(budget);
