@@ -86,6 +86,25 @@ p {
     height: 300px;
 }
 
+#d3Chart {
+    text-align: center;
+}
+
+#d3Chart svg {
+    margin: 20px auto;
+}
+
+#d3Chart path.slice {
+    stroke-width: 2px;
+}
+
+#d3Chart polyline {
+    opacity: 0.3;
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+}
+
 footer {
     background-color: #b4c6f0;
     text-align: center;
