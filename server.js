@@ -5,8 +5,18 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-app.use(cors());
-app.use(express.static('public'));
+const whitelist = ['http://localhost:3000', 'http://localhost:5500'];
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+};
+app.use(cors(corsOptions));
 
 const fs = require('fs');
 const budget = JSON.parse(fs.readFileSync('budget_data.json', 'utf8'));
